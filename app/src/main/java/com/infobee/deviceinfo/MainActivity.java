@@ -203,14 +203,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public static long getTotalStorageSpace() {
-        File path = Environment.getExternalStorageDirectory();
-        StatFs stat = new StatFs(path.getPath());
-        long blockSize = stat.getBlockSizeLong();
-        long totalBlocks = stat.getBlockCountLong();
-        return totalBlocks * blockSize;
-    }
-
         private void retrieveDeviceInfo() {
         Context context = getApplicationContext();
 
@@ -233,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
         long usedRam = totalRam - freeRam;
         String ramInfo = formatStorageSize(usedRam) + " / " + formatStorageSize(totalRam);
         System.out.println("ram:"+ramInfo);
-        txRam.setText(ramInfo);
+        txRam.setText("Total: "+ramInfo + "\nFree RAM: "+ formatStorageSize(freeRam)+ "\nUsed RAM:"+ formatStorageSize(usedRam));
 
 
         // Retrieve the amount of storage
@@ -242,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
         long usedStorage = totalStorage - freeStorage;
         String storageInfo = formatStorageSize(usedStorage) + " / " + formatStorageSize(totalStorage);
         System.out.println("storageInfo:"+storageInfo);
-        txStorage.setText(storageInfo);
+        txStorage.setText("Total: "+storageInfo + "\nFree Storage: "+ formatStorageSize(freeStorage)+ "\nUsed Storage:"+formatStorageSize( usedStorage));
 
 
         // Retrieve the battery information
