@@ -1,7 +1,3 @@
-
-
-
-
 This Android Java code is designed to fetch and display information about an Android device's hardware and software components. The code uses various APIs to extract information about the device's camera, processor, storage, battery, RAM, Android version, and more.
 
 How to Use
